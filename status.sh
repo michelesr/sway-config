@@ -7,31 +7,24 @@
 # time and date.
 date_formatted=$(date "+%a %F %H:%M")
 
-# "upower --enumerate | grep 'BAT'" gets the battery name (e.g.,
-# "/org/freedesktop/UPower/devices/battery_BAT0") from all power devices.
-# "upower --show-info" prints battery information from which we get
-# the state (such as "charging" or "fully-charged") and the battery's
-# charge percentage. With awk, we cut away the column containing
-# identifiers. i3 and sway convert the newline between battery state and
-# the charge percentage automatically to a space, producing a result like
-# "charging 59%" or "fully-charged 100%".
-battery_info=$(upower --show-info $(upower --enumerate |\
-grep 'BAT') |\
-egrep "state|percentage" |\
-awk '{print $2}')
+# find the right path with
+#   upower --enumerate | grep BAT
+bat_path='/org/freedesktop/UPower/devices/battery_BAT0'
+battery_info=$(upower --show-info $bat_path | awk '/state|percentage/ {print $2}')
+battery_icon='🔋'
 
-case $(pamixer --get-mute) in
-  'true')  vol_icon="🔇" ;;
-  'false') vol_icon="🔉" ;;
-esac
-
-vol=$(pacmd list-sinks | awk '/front-left:/ {print "L: " $5 " R: " $12}')
+vol=$(
+  pacmd list-sinks |
+  awk '/muted/ {print $2 == "yes"? "🔇": "🔉"};
+  /front-left:/ {print " L: " $5 " R: " $12}' | sort
+)
 
 # check if app is using mic
-mic_app=$(pactl list source-outputs | awk '/application.process.binary / {print $3}' | sed 's/"//g' | uniq | grep -v 'pavucontrol')
-if [[ "$mic_app" != "" ]]; then
-  mic_app="🎤 $mic_app"
-fi
+mic_app=$(
+  pactl list source-outputs |
+  awk '/application.process.binary / {print "🎤 " $3}' |
+  sed 's/"//g' | uniq | grep -v 'pavucontrol'
+)
 
 bt=$(rfkill | awk '/bluetooth/ {print $4 " " $5}')
 if [[ "$bt" == "unblocked unblocked" ]]; then
@@ -49,4 +42,5 @@ if [[ "${networks}" != "" ]]; then network_icon="💻"; fi
 # Audio: 🔈 🔊 🎧 🎶 🎵 🎤
 # Separators: \| ❘ ❙ ❚
 # Misc: 🐧 💎 💻 💡 ⭐ 📁 ↑ ↓ ✉ ✅ ❎
-echo $mic_app $network_icon $networks $vol_icon $vol $brightness_icon $brightness 🔋 $battery_info 🐧 $date_formatted $bt_icon
+echo $mic_app $network_icon $networks $vol $brightness_icon $brightness \
+     $battery_icon $battery_info 🐧 $date_formatted $bt_icon
