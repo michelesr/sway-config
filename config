@@ -21,7 +21,7 @@ set $lock swaylock -c 000000
 bindsym $mod+z exec $lock
 
 # lock and shut screen after timeout and before suspend
-exec swayidle \
+exec swayidle -w \
 	timeout 300 '$lock' \
 	timeout 305 'swaymsg "output * dpms off"' \
 		resume 'swaymsg "output * dpms on"' \
@@ -71,8 +71,22 @@ bindsym $alt+F4 kill
 bindsym $mod+d exec bemenu-run
 bindsym $mod+p exec bemenu-run
 
+# launcher mode
+set $mode_launcher Launch: [a] alacritty [f]irefox [t]hunderbird
+bindsym $mod+o mode "$mode_launcher"
+
+mode "$mode_launcher" {
+  bindsym a exec alacritty
+  bindsym f exec firefox
+  bindsym t exec thunderbird
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
 # border and decoration toggle
-default_border none
+# default_border none
+
 bindsym $mod+c border toggle
 
 # change focus
@@ -208,5 +222,8 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
 
 # set background
 output * bg ~/Pictures/vulcanart.png fill
+
+for_window [class="mednafen"] inhibit_idle fullscreen
+for_window [class="mame"] inhibit_idle fullscreen
 
 include /etc/sway/config.d/*
