@@ -3,6 +3,10 @@
 # if swaylocks exits with status code != 0
 lock='swaylock -c 000000'
 $lock &
-if ! wait %1; then
-  swaymsg exit
-fi
+wait %1
+case "$?" in
+  "0"|"2")
+    exit 0 ;;
+  *)
+    swaymsg exit ;;
+esac
