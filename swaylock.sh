@@ -1,6 +1,8 @@
 #!/bin/bash
 # wrap swaylock so that sway will close the session
-# if swaylocks exits with status code != 0
+# if swaylocks exits with status code not in
+#   0: success
+#   2: screen already locked
 lock='swaylock -c 000000'
 $lock &
 wait %1
