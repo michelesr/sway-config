@@ -17,7 +17,7 @@ set $right l
 font pango:Cantarell Mono 11
 
 # Screen lock
-set $lock swaylock -c 000000
+set $lock ~/.config/sway/lock.sh
 bindsym $mod+z exec $lock
 
 # lock and shut screen after timeout and before suspend
