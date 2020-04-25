@@ -228,7 +228,7 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
 # set background
 output * bg ~/Pictures/vulcanart.png fill
 
-for_window [class="mednafen"] inhibit_idle fullscreen
-for_window [class="mame"] inhibit_idle fullscreen
+for_window [class="mednafen"] inhibit_idle focus
+for_window [class="mame"] inhibit_idle focus
 
 include /etc/sway/config.d/*
