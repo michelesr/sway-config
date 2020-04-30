@@ -34,7 +34,7 @@ fi
 brightness=$(brightnessctl | awk '/Current/ {print $4}' | sed 's/[()]//g')
 brightness_icon="🔆"
 
-networks=$(nmcli connection show --active | grep -E -v 'tun0|NAME' | awk '{print $1}')
+networks=$(~/.config/sway/get_active_networks.py | grep -v 'tun0')
 if [[ "${networks}" != "" ]]; then network_icon="💻"; fi
 
 # Additional emojis and characters for the status bar:
