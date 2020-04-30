@@ -219,3 +219,4 @@ output * bg ~/Pictures/vulcanart.png fill
 
 for_window [class="mednafen"] inhibit_idle focus
 for_window [class="mame"] inhibit_idle focus
+for_window [app_id="firefox" title="Firefox - Sharing Indicator"] kill
