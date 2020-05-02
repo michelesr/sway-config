@@ -3,7 +3,7 @@
 #
 # Args:
 #   -f | --foreground : run in foreground
-CMD='swaylock -c 000000'
+CMD='swaylock -i ~/Pictures/vulcanart.png'
 
 lock() {
   # handle termination signals: SIGKILL can't be handled
@@ -11,10 +11,12 @@ lock() {
 
   $CMD &
   wait %1
-  case "$?" in
+  code=$?
+  case "${code}" in
     "0"|"2")
       exit 0 ;;
     *)
+      echo "[$(date '+%F %T')] swaylock exit code: ${code}" >> ~/swaylock.log
       swaymsg exit ;;
   esac
 }
