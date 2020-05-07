@@ -66,8 +66,6 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
-# ALT-F4
-bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec bemenu-run
