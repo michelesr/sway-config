@@ -1,6 +1,6 @@
 #!/bin/sh
 # adapted from: https://legacy.sr.ht/EJ5C.sh
-output_file="/tmp/screenshot-$(date '+%F-%T')"
+output_file="/tmp/screenshot-$(date '+%F-%T').png"
 
 case "$1" in
 	"full")
