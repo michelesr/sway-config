@@ -17,7 +17,7 @@ set $right l
 font pango:Cantarell Mono 11
 
 # Screen lock
-set $lock ~/.config/sway/swaylock.sh
+set $lock swaylock --daemonize -i ~/Pictures/vulcanart.png
 bindsym $mod+z exec $lock
 
 # lock and shut screen after timeout and before suspend
