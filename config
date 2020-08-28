@@ -125,6 +125,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# destroy/create swaybar
+bindsym $mod+Mod1+h exec killall swaybar || swaybar --bar_id bar-0
+
 # focus the child container
 #bindsym $mod+d focus child
 
