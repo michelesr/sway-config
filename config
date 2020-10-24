@@ -17,7 +17,9 @@ set $right l
 font pango:Cantarell Mono 11
 
 # Screen lock
-set $lock swaylock --daemonize -i ~/Pictures/vulcanart.png
+set $lock loginctl lock-session
+set $slock swaylock --daemonize -i ~/Pictures/vulcanart.png
+
 bindsym $mod+z exec $lock
 
 # lock and shut screen after timeout and before suspend
@@ -26,7 +28,7 @@ exec swayidle -w \
   timeout 305 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep '$lock' \
-  lock '$lock' \
+  lock '$slock' \
   unlock 'pkill -KILL swaylock'
 
 # startup apps
