@@ -31,7 +31,11 @@ if [[ "$bt" == "unblocked unblocked" ]]; then
   bt_icon="ᛒ"
 fi
 
-brightness=$(brightnessctl | awk '/Current/ {print $4}' | sed 's/[()]//g')
+brightness_path='/sys/class/backlight/intel_backlight'
+brightness=$(cat $brightness_path/brightness)
+# max_brightness=$(cat $brightness_path/max_brightness)
+max_brightness=120000
+brightness_percent=$(python -c "print(int($brightness / $max_brightness * 100))")%
 brightness_icon="🔆"
 
 networks=$(~/.config/sway/get_active_networks.py | grep -v 'tun0')
@@ -42,5 +46,5 @@ if [[ "${networks}" != "" ]]; then network_icon="💻"; fi
 # Audio: 🔈 🔊 🎧 🎶 🎵 🎤
 # Separators: \| ❘ ❙ ❚
 # Misc: 🐧 💎 💻 💡 ⭐ 📁 ↑ ↓ ✉ ✅ ❎
-echo $mic_app $network_icon $networks $vol $brightness_icon $brightness \
+echo $mic_app $network_icon $networks $vol $brightness_icon $brightness_percent \
      $battery_icon $battery_info 🐧 $date_formatted $bt_icon
