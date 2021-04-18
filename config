@@ -50,6 +50,8 @@ exec --no-startup-id mako
 
 exec --no-startup-id nextcloud
 exec --no-startup-id keepassxc
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
 exec --no-startup-id redshift -m wayland
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
