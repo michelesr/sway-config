@@ -14,9 +14,9 @@ battery_info=$(upower --show-info $bat_path | awk '/state|percentage/ {print $2}
 battery_icon='🔋'
 
 vol=$(
-  pacmd list-sinks |
-  awk '/muted/ {print $2 == "yes"? "🔇": "🔉"};
-  /front-left:/ {print " L: " $5 " R: " $12}' | sort
+  pactl list sinks |
+  awk '/Mute/ {print $2 == "yes"? "🔇": "🔉"};
+  /front-left:/ {print " L: " $5 " R: " $12}'
 )
 
 # check if app is using mic
