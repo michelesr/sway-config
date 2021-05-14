@@ -222,6 +222,11 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
   pointer_accel 1
 }
 
+input type:keyboard {
+  repeat_delay 200
+  repeat_rate 40
+}
+
 # set background
 output * bg ~/Pictures/vulcanart.png fill
 
