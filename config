@@ -230,9 +230,9 @@ input type:keyboard {
 # set background
 output * bg ~/Pictures/vulcanart.png fill
 
+for_window [class="openmw"] inhibit_idle focus
 for_window [class="PPSSPPSDL"] inhibit_idle focus
 
 for_window [app_id="mednafen"] inhibit_idle focus
 for_window [app_id="mame"] inhibit_idle focus
-for_window [app_id="openmw"] inhibit_idle focus
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
