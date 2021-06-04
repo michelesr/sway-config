@@ -84,7 +84,7 @@ bindsym Shift+Print exec ~/.config/sway/screenshot.sh rect
 bindsym Mod1+Print exec ~/.config/sway/screenshot.sh active_window
 
 # border and decoration toggle
-# default_border none
+default_border none
 
 bindsym $mod+c border toggle
 
