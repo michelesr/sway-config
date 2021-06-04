@@ -227,6 +227,10 @@ input type:keyboard {
   repeat_rate 40
 }
 
+# screens
+output DP-3 res 2560x1440@75Hz
+output eDP-1 disable
+
 # set background
 output * bg ~/Pictures/vulcanart.png fill
 
