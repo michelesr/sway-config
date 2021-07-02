@@ -2,6 +2,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# required by xdg-desktop-portal-wlr
+include /etc/sway/config.d/50-systemd-user.conf
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 set $alt Mod1
@@ -50,8 +53,6 @@ exec --no-startup-id mako
 
 exec --no-startup-id nextcloud
 exec --no-startup-id keepassxc
-exec --no-startup-id /usr/lib/xdg-desktop-portal -r
-exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
 exec --no-startup-id redshift -m wayland
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
