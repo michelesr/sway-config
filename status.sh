@@ -23,7 +23,7 @@ vol=$(
 mic_app=$(
   pactl list source-outputs |
   awk '/application.process.binary / {print "🎤 " $3}' |
-  sed 's/"//g' | uniq | grep -v 'pavucontrol'
+  sed 's/"//g' | uniq
 )
 
 bt=$(rfkill | awk '/bluetooth/ {print $4 " " $5}')
