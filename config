@@ -224,6 +224,7 @@ input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
 }
 
 input type:keyboard {
+  xkb_options compose:ralt
   repeat_delay 200
   repeat_rate 40
 }
