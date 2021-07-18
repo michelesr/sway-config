@@ -15,7 +15,7 @@ battery_icon='🔋'
 
 vol=$(
   pactl list sinks |
-  awk '/Mute/ {print $2 == "yes"? "🔇": "🔉"};
+  awk '/Mute/ {print $2 == "yes"? "🔇": "🔊"};
   /front-left:/ {print " L: " $5 " R: " $12}'
 )
 
@@ -39,12 +39,12 @@ brightness_percent=$(python -c "print(int($brightness / $max_brightness * 100))"
 brightness_icon="🔆"
 
 networks=$(~/.config/sway/get_active_networks.py | grep -v 'tun0')
-if [[ "${networks}" != "" ]]; then network_icon="💻"; fi
+if [[ "${networks}" != "" ]]; then network_icon="🚀"; fi
 
 # Additional emojis and characters for the status bar:
 # Electricity: ⚡ ↯ ⭍ 🔌
 # Audio: 🔈 🔊 🎧 🎶 🎵 🎤
 # Separators: \| ❘ ❙ ❚
 # Misc: 🐧 💎 💻 💡 ⭐ 📁 ↑ ↓ ✉ ✅ ❎
-echo $mic_app $network_icon $networks $vol $brightness_icon $brightness_percent \
+echo $network_icon $networks $mic_app $vol $brightness_icon $brightness_percent \
      $battery_icon $battery_info 🐧 $date_formatted $bt_icon
