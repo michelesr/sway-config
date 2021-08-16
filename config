@@ -53,7 +53,9 @@ exec --no-startup-id mako
 
 exec --no-startup-id nextcloud
 exec --no-startup-id keepassxc
-exec --no-startup-id redshift -m wayland
+
+# redshift fork
+exec --no-startup-id gammastep -m wayland
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
