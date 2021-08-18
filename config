@@ -204,6 +204,11 @@ mode "resize" {
   bindsym $mod+r mode "default"
 }
 
+# this mode ignores any shortcut except $mod+r
+mode "ignore" {
+  bindsym $mod+r mode "default"
+}
+
 bindsym $mod+r mode "resize"
 
 # status bar
