@@ -246,6 +246,8 @@ bindsym $mod+$alt+e output eDP-1 enable
 output * bg ~/Pictures/vulcanart.png fill
 
 for_window [class="openmw"] inhibit_idle focus
+for_window [class="DaggerfallUnity.x86_64"] inhibit_idle focus
+for_window [class="oblivion.exe"] inhibit_idle focus
 for_window [class="supertuxkart"] inhibit_idle focus
 for_window [class="PPSSPPSDL"] inhibit_idle focus
 
