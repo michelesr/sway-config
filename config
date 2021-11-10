@@ -254,3 +254,4 @@ for_window [class="PPSSPPSDL"] inhibit_idle focus
 for_window [app_id="mednafen"] inhibit_idle focus
 for_window [app_id="mame"] inhibit_idle focus
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+for_window [app_id="qjackctl" title="^JACK Audio.*$"] floating enable
