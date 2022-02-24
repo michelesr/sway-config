@@ -13,10 +13,15 @@ bat_path='/org/freedesktop/UPower/devices/battery_BAT0'
 battery_info=$(upower --show-info $bat_path | awk '/state|percentage/ {print $2}')
 battery_icon='🔋'
 
-vol=$(
+sinks=$(
   pactl list sinks |
-  awk '/Mute/ {print $2 == "yes"? "🔇": "🔊"};
-  /front-left:/ {print " L: " $5 " R: " $12}'
+  awk '''
+    /Mute/ {icon = ($2 == "yes"? "🔇": "🔊")}
+    /Description:/ {$1 = ""; desc = $0}
+    /front-left:/ {vol = (" L: " $5 " R: " $12)}
+    /Active Port:/ {port = $3}
+    /Formats/ {print icon desc " (" port ")" " 🎶 " vol}
+  '''
 )
 
 # check if app is using mic
@@ -39,12 +44,12 @@ brightness_percent=$(python -c "print(int($brightness / $max_brightness * 100))"
 brightness_icon="🔆"
 
 networks=$(~/.config/sway/get_active_networks.py | grep -v 'tun0')
-if [[ "${networks}" != "" ]]; then network_icon="🚀"; fi
+networks=$(awk 'NF > 0 {print "🚀 " $0}'<<<"${networks}")
 
 # Additional emojis and characters for the status bar:
 # Electricity: ⚡ ↯ ⭍ 🔌
 # Audio: 🔈 🔊 🎧 🎶 🎵 🎤
 # Separators: \| ❘ ❙ ❚
 # Misc: 🐧 💎 💻 💡 ⭐ 📁 ↑ ↓ ✉ ✅ ❎
-echo $network_icon $networks $mic_app $vol $brightness_icon $brightness_percent \
+echo $networks $mic_app $sinks $brightness_icon $brightness_percent \
      $battery_icon $battery_info 🐧 $date_formatted $bt_icon
