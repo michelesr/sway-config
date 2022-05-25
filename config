@@ -32,7 +32,7 @@ exec swayidle -w \
   resume 'swaymsg "output * dpms on"' \
   before-sleep '$lock' \
   lock '$slock' \
-  unlock 'pkill -KILL swaylock'
+  unlock 'killall -USR1 swaylock'
 
 # startup apps
 
