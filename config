@@ -233,8 +233,10 @@ input type:keyboard {
 
 # screens
 output DP-3 res 2560x1440@75Hz
-output eDP-1 disable
-bindsym --locked $mod+$alt+e output eDP-1 enable
+
+# Enable/Disable laptop monitor when open/close the lid
+bindswitch --locked lid:on output eDP-1 disable
+bindswitch --locked lid:off output eDP-1 enable
 
 # set background
 output * bg ~/Pictures/vulcanart.png fill
