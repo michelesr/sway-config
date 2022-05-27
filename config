@@ -234,7 +234,7 @@ input type:keyboard {
 # screens
 output DP-3 res 2560x1440@75Hz
 output eDP-1 disable
-bindsym $mod+$alt+e output eDP-1 enable
+bindsym --locked $mod+$alt+e output eDP-1 enable
 
 # set background
 output * bg ~/Pictures/vulcanart.png fill
