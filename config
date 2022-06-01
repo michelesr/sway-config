@@ -59,8 +59,13 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+bindsym XF86Explorer exec nautilus
+bindsym XF86HomePage exec firefox
+bindsym XF86Calculator exec gnome-calculator
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -253,3 +258,4 @@ for_window [app_id="mednafen"] inhibit_idle focus
 for_window [app_id="mame"] inhibit_idle focus
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 for_window [app_id="qjackctl" title="^JACK Audio.*$"] floating enable
+for_window [app_id="org.gnome.Calculator"] floating enable
