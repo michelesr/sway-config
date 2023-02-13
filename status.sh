@@ -43,7 +43,7 @@ max_brightness=120000
 brightness_percent=$(python -c "print(int($brightness / $max_brightness * 100))")%
 brightness_icon="🔆"
 
-networks=$(~/.config/sway/get_active_networks.py | grep -v 'tun0')
+networks=$(~/.config/sway/get_active_networks.py | grep -v -E 'tun0|lo')
 networks=$(awk 'NF > 0 {print "🚀 " $0}'<<<"${networks}")
 
 # Additional emojis and characters for the status bar:
