@@ -5,9 +5,10 @@
 # required by xdg-desktop-portal-wlr
 include /etc/sway/config.d/50-systemd-user.conf
 
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+# Alt key. Use Mod4 for Super.
+set $mod Mod1
 set $alt Mod1
+set $super Mod4
 
 # Home row direction keys, like vim
 set $left h
@@ -139,8 +140,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # show/hide status bar
-bindsym $mod+$alt+s bar mode dock
-bindsym $mod+$alt+h bar mode hide
+bindsym $mod+$super+s bar mode dock
+bindsym $mod+$super+h bar mode hide
 
 # focus the child container
 #bindsym $mod+d focus child
