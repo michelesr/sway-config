@@ -78,7 +78,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec bemenu-run
 bindsym $mod+p exec bemenu-run
 
 # screenshots
@@ -141,9 +140,6 @@ bindsym $mod+a focus parent
 # show/hide status bar
 bindsym $mod+$alt+s bar mode dock
 bindsym $mod+$alt+h bar mode hide
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # cycle through workspaces
 bindsym $mod+Tab workspace next_on_output
