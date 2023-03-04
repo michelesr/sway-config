@@ -179,10 +179,12 @@ bindsym $mod+Shift+c reload
 # exit sway (logs you out of your wayland session)
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'"
 
-# this mode ignores any shortcut except $mod+r
+# this mode ignores any shortcut except $mod+$alt+i
 mode "ignore" {
-  bindsym $mod+r mode "default"
+  bindsym $mod+$alt+i mode "default"
 }
+
+bindsym $mod+$alt+i mode ignore
 
 # status bar
 bar {
