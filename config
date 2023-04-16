@@ -234,3 +234,6 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 
 for_window [class="modorganizer.exe" title="ModOrganizer"] floating enable
 for_window [class="modorganizer.exe" title="ModOrganizer"] border normal
+
+for_window [class="oblivion.exe"] floating disable
+for_window [class="oblivion.exe"] border none
