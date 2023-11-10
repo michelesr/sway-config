@@ -18,7 +18,7 @@ sinks=$(
   awk '''
     /Mute/ {icon = ($2 == "yes"? "🔇": "🔊")}
     /Description:/ {$1 = ""; desc = $0}
-    /front-left:/ {vol = (" L: " $5 " R: " $12)}
+    /front-left:|aux0:/ {vol = (" L: " $5 " R: " $12)}
     /Active Port:/ {port = $3}
     /Formats/ {print icon desc " (" port ")" " 🎶 " vol}
   '''
