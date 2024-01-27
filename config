@@ -198,7 +198,7 @@ bar {
 # input
 input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
   tap enabled
-  natural_scroll enabled
+  natural_scroll disabled
   pointer_accel 0.75
 }
 
