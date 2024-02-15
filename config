@@ -26,11 +26,17 @@ set $slock swaylock --daemonize -i ~/Pictures/vulcanart.png
 bindsym $mod+z exec $lock
 
 # lock and shut screen after timeout and before suspend
+#
+# NOTE: normally locking the session will cause swayidle to start swaylock
+# automatically, but when using "before-sleep" the handler for the "lock" event
+# triggers too late (after resuming), leaving the screen unprotected for a
+# short amount of time after resume, hence the needing of explicitly locking
+# the screen with swaylock on "before-sleep"
 exec swayidle -w \
   timeout 300 '$lock' \
   timeout 305 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
-  before-sleep '$lock' \
+  before-sleep '$slock && $lock' \
   lock '$slock' \
   unlock 'killall -USR1 swaylock'
 
