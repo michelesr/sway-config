@@ -230,7 +230,11 @@ for_window [class="oblivion.exe"] inhibit_idle focus
 for_window [class="skyrimse.exe"] inhibit_idle focus
 for_window [class="supertuxkart"] inhibit_idle focus
 for_window [class="PPSSPPSDL"] inhibit_idle focus
+
 for_window [class="pcsx2-qt"] inhibit_idle focus
+
+# for pcsx2-qt
+for_window [class="AppRun.wrapped"] inhibit_idle focus
 
 for_window [app_id="mednafen"] inhibit_idle focus
 for_window [app_id="mame"] inhibit_idle focus
