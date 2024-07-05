@@ -51,8 +51,8 @@ exec --no-startup-id mako
 #
 # exec --no-startup-id nm-applet
 
-exec --no-startup-id nextcloud
-exec --no-startup-id keepassxc
+exec --no-startup-id bash -c 'sleep 2 && exec nextcloud'
+exec --no-startup-id bash -c 'sleep 2 && exec keepassxc'
 
 # redshift fork
 exec --no-startup-id gammastep -m wayland
