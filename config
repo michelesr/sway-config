@@ -194,7 +194,7 @@ bar {
   colors {
       statusline #ffffff
       background #2f343f
-      inactive_workspace #32323200 #32323200 #5c5c5c
+      inactive_workspace #2f343f #2f343f #ffffff
   }
 
   # status bar script
