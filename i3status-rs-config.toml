@@ -10,14 +10,6 @@ idle_fg = "#ffffff"
 icons = "awesome4"
 
 [[block]]
-block = "privacy"
-[[block.driver]]
-name = "v4l"
-[[block.driver]]
-name = "pipewire"
-display = "nickname"
-
-[[block]]
 block = "external_ip"
 format = " $org / $ip $country_flag "
 
@@ -58,3 +50,11 @@ block = "battery"
 block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%a %d/%m %R') "
+
+[[block]]
+block = "privacy"
+[[block.driver]]
+name = "v4l"
+[[block.driver]]
+name = "pipewire"
+display = "nickname"
