@@ -1,0 +1,60 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "solarized-dark"
+[theme.overrides]
+idle_bg = "#2f343f"
+idle_fg = "#ffffff"
+
+[icons]
+icons = "awesome4"
+
+[[block]]
+block = "privacy"
+[[block.driver]]
+name = "v4l"
+[[block.driver]]
+name = "pipewire"
+display = "nickname"
+
+[[block]]
+block = "external_ip"
+format = " $org / $ip $country_flag "
+
+[[block]]
+block = "net"
+
+[[block]]
+block = "cpu"
+info_cpu = 20
+warning_cpu = 50
+critical_cpu = 90
+
+[[block]]
+block = "memory"
+format = " $icon $mem_total_used_percents.eng(w:2) "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+
+[[block]]
+block = "sound"
+format = "$icon $output_name { $active_port| } $volume "
+[block.mappings]
+"@DEFAULT_SINK@" = "dummy"
+[block.active_port_mappings]
+"analog-output-speaker" = "speaker"
+"analog-output-headphones" = "headphones"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
+
+[[block]]
+block = "battery"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
