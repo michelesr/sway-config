@@ -10,11 +10,11 @@ idle_fg = "#ffffff"
 icons = "awesome4"
 
 [[block]]
-block = "external_ip"
-format = " $org / $ip $country_flag "
+block = "net"
 
 [[block]]
-block = "net"
+block = "external_ip"
+format = " $org / $ip $country_flag "
 
 [[block]]
 block = "cpu"
