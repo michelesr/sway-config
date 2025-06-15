@@ -33,8 +33,8 @@ bindsym $mod+z exec $lock
 # short amount of time after resume, hence the needing of explicitly locking
 # the screen with swaylock on "before-sleep"
 exec swayidle -w \
-  timeout 300 '$lock' \
-  timeout 305 'swaymsg "output * dpms off"' \
+  timeout 900 '$lock' \
+  timeout 905 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep '$slock && $lock' \
   lock '$slock' \
