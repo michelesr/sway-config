@@ -235,7 +235,16 @@ for_window [class="supertuxkart"] inhibit_idle focus
 for_window [class="PPSSPPSDL"] inhibit_idle focus
 for_window [class="dolphin-emu"] inhibit_idle focus
 
-for_window [class="pcsx2-qt"] inhibit_idle focus
+for_window [app_id="openmw"] inhibit_idle focus
+for_window [app_id="DaggerfallUnity.x86_64"] inhibit_idle focus
+for_window [app_id="oblivion.exe"] inhibit_idle focus
+for_window [app_id="skyrimse.exe"] inhibit_idle focus
+for_window [app_id="witcher3.exe"] inhibit_idle focus
+for_window [app_id="explorer.exe"] inhibit_idle focus
+for_window [app_id="supertuxkart"] inhibit_idle focus
+for_window [app_id="PPSSPPSDL"] inhibit_idle focus
+for_window [app_id="dolphin-emu"] inhibit_idle focus
+for_window [app_id="pcsx2-qt"] inhibit_idle focus
 
 # for pcsx2-qt
 for_window [class="AppRun.wrapped"] inhibit_idle focus
